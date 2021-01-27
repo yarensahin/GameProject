@@ -1,5 +1,4 @@
 ﻿using GameProject.Abstract;
-using GameProject.Concrete.CheckingSystem;
 using GameProject.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,17 +6,22 @@ using System.Text;
 
 namespace GameProject.Concrete
 {
-    public class PlayerManager : EDevlet,IPlayerService
+    public class PlayerManager :IPlayerService
     {
+        IPlayerCheckService _playerCheckService;
+        public PlayerManager(IPlayerCheckService playerCheckService)
+        {
+            _playerCheckService = playerCheckService;
+        }
         public void Add(Player player)
         {
-            EDevlet eDevlet = new EDevlet();
-            if (eDevlet.CheckIfRealPerson(player)==true)
+           
+            if (_playerCheckService.CheckIfRealPerson(player)==true)
             {
                 Console.WriteLine($"Player:\nTcNo: {player.TcNo}\nFirst Name:{player.FirstName}" +
                     $"\nLast Name:{player.LastName}\nBirth Year: {player.BirthDateYear} successfully signed up");
             }
-            else if(eDevlet.CheckIfRealPerson(player) == false)
+            else if(_playerCheckService.CheckIfRealPerson(player) == false)
             {
                 throw new Exception ( "Please enter a valid person" );
             }

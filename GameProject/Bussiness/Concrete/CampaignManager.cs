@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GameProject.Entities
 {
-    public class SalesManager:ICampaignService
+    public class CampaignManager:ICampaignService
     {
         public virtual void ApplyDiscount(Game game)
         {
@@ -38,7 +38,7 @@ namespace GameProject.Entities
             campaign.Name = Console.ReadLine();
             Console.WriteLine("Discount:");
             campaign.Discount= Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"New campaign is succesfully updated!\nName: {campaign.Name}\nDiscount: {campaign.Discount}");
+            Console.WriteLine($"Campaign is succesfully updated!\nName: {campaign.Name}\nDiscount: {campaign.Discount}");
             
         }
         public void DeleteCampaign(ICampaign campaign)

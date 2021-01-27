@@ -34,8 +34,9 @@ namespace GameProject
             Console.WriteLine("-------------Welcome-------------");
 
             GameManager gameManager = new GameManager();
-            PlayerManager playerManager = new PlayerManager();
-            SalesManager salesManager = new SalesManager();
+            IPlayerCheckService playerCheckService = new PlayerCheckManager();
+            PlayerManager playerManager = new PlayerManager(playerCheckService);
+            CampaignManager salesManager = new CampaignManager();
 
             ICampaign newCampaign = new NewCampaign();
             ICampaign blackFridayCampaign = new BlackFridayCampaign();

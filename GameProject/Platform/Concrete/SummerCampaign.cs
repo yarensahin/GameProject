@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameProject.Entities
 {
-    public class SummerCampaign : SalesManager,ICampaign
+    public class SummerCampaign : CampaignManager,ICampaign
     {
         double _discount = 0.40;
         string _name = "Summer Campaign";
